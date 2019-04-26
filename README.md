@@ -4,13 +4,15 @@ Fake news data: https://www.kaggle.com/mrisdal/fake-news
 
 Real news data: https://www.kaggle.com/asad1m9a9h6mood/news-articles or filtering https://www.kaggle.com/snapcrack/all-the-news
 
-PLAN:
+__PLAN:__
 
 ## Scrape news datasets (4/28)
 
-Fake: Breitbart, InfoWars, NewsPunch (extreme-right fake news), Occupy Democrats (extreme-left fake news)
+Fake: __Breitbart, InfoWars, NewsPunch__ (extreme-right fake news), Occupy Democrats (extreme-left fake news)
 
-Real: AP, Reuters (generally unbiased), NPR (left-center bias), Chicago Tribune (right-center bias)
+Real: __AP, Reuters__ (generally unbiased), __NPR__ (left-center bias), Chicago Tribune (right-center bias)
+
+_Amount of news to collect from each news site: TBD_
 
 Split datasets into 70-15-15 for training, validation, testing.
 
