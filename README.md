@@ -8,9 +8,9 @@ PLAN:
 
 ## Scrape news datasets (4/28)
 
-Fake: Breitbart, InfoWars, NewsPunch
+Fake: Breitbart, InfoWars, NewsPunch (extreme-right fake news), Occupy Democrats (extreme-left fake news)
 
-Real: AP, Reuters, NPR
+Real: AP, Reuters (generally unbiased), NPR (left-center bias), Chicago Tribune (right-center bias)
 
 Split datasets into 70-15-15 for training, validation, testing.
 
