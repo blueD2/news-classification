@@ -1,0 +1,29 @@
+{
+    "breitbart": {
+      "link": "http://www.breitbart.com/"
+    },
+    "infowars": {
+      "link": "https://www.infowars.com/"
+    },
+    "newspunch": {
+      "link": "https://newspunch.com//"
+    },
+    "occupydemocrats": {
+      "link": "http://occupydemocrats.com/"
+    },
+
+
+    "ap": {
+      "link": "https://www.apnews.com/"
+    },
+    "reuters": {
+        "link": "https://www.reuters.com/"
+    },
+    "npr": {
+        "link": "https://www.npr.org/sections/news/"
+    },
+    "bbc": {
+        "link": "https://www.bbc.com/news"
+    }
+    
+  }
