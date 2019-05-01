@@ -1,29 +1,37 @@
 {
     "breitbart": {
-      "link": "http://www.breitbart.com/"
-    },
+        "link": "http://www.breitbart.com/",
+        "label": "fake"
+        },
     "infowars": {
-      "link": "https://www.infowars.com/"
+        "link": "https://www.infowars.com/",
+        "label": "fake"
     },
     "newspunch": {
-      "link": "https://newspunch.com//"
+        "link": "https://newspunch.com/",
+        "label": "fake"
     },
     "occupydemocrats": {
-      "link": "http://occupydemocrats.com/"
+        "link": "http://occupydemocrats.com/",
+        "label": "fake"
     },
-
+    
 
     "ap": {
-      "link": "https://www.apnews.com/"
+        "link": "https://www.apnews.com/",
+        "label": "real"
     },
     "reuters": {
-        "link": "https://www.reuters.com/"
+        "link": "https://www.reuters.com/",
+        "label": "real"
     },
     "npr": {
-        "link": "https://www.npr.org/sections/news/"
+        "link": "https://www.npr.org/sections/news/",
+        "label": "real"
     },
     "bbc": {
-        "link": "https://www.bbc.com/news"
+        "link": "https://www.bbc.com/news",
+        "label": "real"
     }
     
   }
