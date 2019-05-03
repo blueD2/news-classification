@@ -16,6 +16,12 @@ _Amount of news to collect from each news site: TBD_
 
 Split datasets into 70-15-15 for training, validation, testing.
 
+NOTES:
+* 'articles.json' contains the text of the scraped articles
+* 'data.json' contains the word counts of the scraped articles
+* 'scraper.py' scrapes the news articles and updates them into 'articles.json'
+* 'word-counts.py' takes article text from 'articles.json', calculates the word counts, and stores them into 'data.json'
+
 ## Naive Bayes classifier (May 2nd)
 -parse each article, create word counts
 -naive bayes stuff
