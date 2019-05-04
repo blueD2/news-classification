@@ -90,9 +90,8 @@ class NaiveBayes():
             for word in datum:
                 #either an article has some occurrences of a word or it doesn't
                 if datum[word] > 0:
-                    logProb += math.log(self.condProbs[(word,label)])
-                else:
-                    logProb += math.log(1-self.condProbs[(word,label)])
+                    #account for number of times you've seen the word
+                    logProb += datum[word]*(math.log(self.condProbs[(word,label)]))
             logJoint[label] = logProb
         return logJoint
 
@@ -156,7 +155,7 @@ with open('data.json') as json_file:
     #run training/validation
     baseline.trainAndValidate(trainingData, trainingLabels, validationData, validationLabels)
 
-    # evaluating performance on test set
+    #evaluate performance on test set
     predictions = baseline.classify(testData)
     accuracyCount =  [predictions[i] == testLabels[i] for i in range(len(testLabels))].count(True)
     print "Naive Bayes baseline on test set: ", (1.0*accuracyCount/len(testLabels))*100.0, "%"
