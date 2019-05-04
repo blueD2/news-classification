@@ -10,7 +10,7 @@ __PLAN:__
 
 Fake: __Breitbart, InfoWars, NewsPunch__ (extreme-right fake news), Occupy Democrats (extreme-left fake news)
 
-Real: __AP, Reuters__ (generally unbiased), __NPR__ (left-center bias), Chicago Tribune (right-center bias)
+Real: __AP, Reuters__, BBC (generally unbiased), __NPR__ (left-center bias), Chicago Tribune (right-center bias)
 
 _Amount of news to collect from each news site: TBD_
 
