@@ -23,9 +23,9 @@ NOTES:
 * 'word-counts.py' takes article text from 'articles.json', calculates the word counts, and stores them into 'data.json'
 
 ## Naive Bayes classifier (May 2nd)
--parse each article, create word counts
--naive bayes stuff
--laplace smoothing
+* 'naive-bayes.py' contains a naive bayes classifier that runs on training and validation data before classifying test data
+* data is read in from 'data.json'
+* validation step is used to find the best k for laplace smoothing
 
 ## Neural network (may 5th)
 -more steps tbd
