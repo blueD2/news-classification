@@ -26,6 +26,7 @@ NOTES:
 * 'naive-bayes.py' contains a naive bayes classifier that runs on training and validation data before classifying test data
 * data is read in from 'data.json'
 * validation step is used to find the best k for laplace smoothing
+* bag-of-words model
 
 ## Neural network (may 5th)
 -more steps tbd
