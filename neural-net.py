@@ -1,6 +1,7 @@
 
 from keras.models import Sequential
 from keras.layers import Dense
+import numpy as np
 
 #HYPERPARAMETERS
 NUM_ITERATIONS = 150
@@ -25,6 +26,4 @@ model.compile(
 )
 
 results = model.fit(trainingData, trainingLabels, epochs=NUM_ITERATIONS, batch_size=BATCH_SIZE)
-
-scores = model.evaluate(validationData, validationLabels)
-print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
+print("Test-Accuracy:", np.mean(results.history["val_acc"]))
