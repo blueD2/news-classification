@@ -1,10 +1,11 @@
 
-from keras.models import Sequential
+from keras import Sequential
 from keras.layers import Dense
 import numpy as np
 
 #HYPERPARAMETERS
 NUM_ITERATIONS = 150
+NUM_HIDDEN_NODES = 8
 BATCH_SIZE = 32 # larger batch size means faster training, in general
 
 NUM_FEATURES = 8 # change this later
@@ -15,8 +16,8 @@ validationLabels = []
 
 #create model
 model = Sequential()
-model.add(Dense(12, input_dim=NUM_FEATURES, activation='relu')) #first layer
-model.add(Dense(8, activation='relu')) # hidden layer
+model.add(Dense(NUM_HIDDEN_NODES, input_dim=NUM_FEATURES, activation='relu')) #first hidden layer
+model.add(Dense(NUM_HIDDEN_NODES, activation='relu')) # second hidden layer
 model.add(Dense(1, activation='sigmoid')) # output layer
 model.compile(
     loss='binary_crossentropy', 
