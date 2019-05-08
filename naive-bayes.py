@@ -1,4 +1,6 @@
 import json
+from string import maketrans
+import re
 import random
 import util
 import math
@@ -96,7 +98,16 @@ class NaiveBayes():
         return logJoint
 
 
-with open('data.json') as json_file:  
+with open('data.json') as json_file:
+    #read from stopwords.txt, stopwords is a list of stopwords
+    f = open('stopwords.txt', 'r')
+    stopwords = f.read().splitlines()
+    f.close()
+
+    #get rid of some quotes in stopwords
+    stopwords = [re.sub(r"\"\'", "", s) for s in stopwords]
+
+    #read from data.json
     data = json.load(json_file)
 
     allWords = set({})
@@ -109,13 +120,14 @@ with open('data.json') as json_file:
     testLabels = []
 
     #shuffle around the data in a "deterministic" way
-    #need more data - naive bayes classifer has an accuracy of 88% (!!!) with seed 5,
-    #but signficantly lower accuracies (around 44-66%) with some other seeds i tried out
     random.Random(3).shuffle(data)
 
     for i in range(len(data)):
         article = data[i]
         wordCounts = util.Counter(article["counts"]) #word -> freq
+        #get rid of stop words from wordCounts dict
+        for s in stopwords:
+            wordCounts.pop(s, None)    
         label = article["label"]
 
         #put data/label into training, validation, or testing
@@ -131,7 +143,7 @@ with open('data.json') as json_file:
         else:
             testData.append(wordCounts)
             testLabels.append(label)
-
+    
     #probably a dumb thing, idk how to do a better way
     #words not seen in an article have a freq of 0
     for i in range(len(trainingData)):
