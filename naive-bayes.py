@@ -39,6 +39,11 @@ class NaiveBayes():
 
     def validate(self, trainingData, trainingLabels, validationData, validationLabels, allWords, wordCounts, prior, conditionalProbs):
         possibleKs = [0.001, 0.01, 0.05, 0.1, 0.5, 1, 5, 10, 20, 50]
+        bestAcc = -1
+        bestPrior = util.Counter()
+        bestCondProbs = util.Counter()
+        bestK = 0
+
         for k in possibleKs:
             #laplace smoothing based on current value of k
             #update conditional probabilities
@@ -59,12 +64,7 @@ class NaiveBayes():
             self.prior = newPrior
             self.condProbs = newCondProbs
 
-            #try it out on validation set
-            bestAcc = -1
-            bestPrior = util.Counter()
-            bestCondProbs = util.Counter()
-            bestK = 0
-
+            #try it out on validation set 
             classifications = self.classify(validationData)
             acc = [classifications[i] == validationLabels[i] for i in range(len(validationLabels))].count(True)
 
@@ -78,7 +78,7 @@ class NaiveBayes():
         self.prior = bestPrior
         self.condProbs = bestCondProbs
         self.k = bestK
-
+       
     def classify(self, data):
         classifications = []
         for i in range(len(data)):
