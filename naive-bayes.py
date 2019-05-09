@@ -1,5 +1,7 @@
 import json
 from nltk.corpus import stopwords 
+from nltk.stem import PorterStemmer
+from nltk.tokenize import sent_tokenize, word_tokenize
 import re
 import random
 import util
@@ -119,10 +121,14 @@ with open('data.json') as json_file:
 
     for i in range(len(data)):
         article = data[i]
-        wordCounts = util.Counter(article["counts"]) #word -> freq
-        #get rid of stop words from wordCounts dict
-        for s in stwords:
-            wordCounts.pop(s, None)    
+        wCounts = util.Counter(article["counts"]) #word -> freq
+        #get rid of stop words 
+        #do stemming?
+        wordCounts = util.Counter()
+        ps = PorterStemmer()
+        for word in wCounts:
+            if word not in stwords:
+                wordCounts[ps.stem(word)] += wCounts[word]
         label = article["label"]
 
         #put data/label into training, validation, or testing
@@ -139,7 +145,7 @@ with open('data.json') as json_file:
             testData.append(wordCounts)
             testLabels.append(label)
     
-    #probably a dumb thing, idk how to do a better way
+    #probably a dumb thing
     #words not seen in an article have a freq of 0
     for i in range(len(trainingData)):
         features = trainingData[i]
@@ -165,5 +171,4 @@ with open('data.json') as json_file:
     #evaluate performance on test set
     predictions = baseline.classify(testData)
     accuracyCount =  [predictions[i] == testLabels[i] for i in range(len(testLabels))].count(True)
-    print "Naive Bayes baseline on test set: ", (1.0*accuracyCount/len(testLabels))*100.0, "%"
-
+    print "Naive Bayes baseline on test set: %.1f%%" % (100.0*accuracyCount/len(testLabels))
