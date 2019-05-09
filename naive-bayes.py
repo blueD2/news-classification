@@ -1,5 +1,5 @@
 import json
-from string import maketrans
+from nltk.corpus import stopwords 
 import re
 import random
 import util
@@ -99,13 +99,8 @@ class NaiveBayes():
 
 
 with open('data.json') as json_file:
-    #read from stopwords.txt, stopwords is a list of stopwords
-    f = open('stopwords.txt', 'r')
-    stopwords = f.read().splitlines()
-    f.close()
-
     #get rid of some quotes in stopwords
-    stopwords = [re.sub(r"\"\'", "", s) for s in stopwords]
+    stwords = [re.sub(r"\"\'", "", s) for s in stopwords.words("english")]
 
     #read from data.json
     data = json.load(json_file)
@@ -126,7 +121,7 @@ with open('data.json') as json_file:
         article = data[i]
         wordCounts = util.Counter(article["counts"]) #word -> freq
         #get rid of stop words from wordCounts dict
-        for s in stopwords:
+        for s in stwords:
             wordCounts.pop(s, None)    
         label = article["label"]
 
