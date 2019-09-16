@@ -29,7 +29,5 @@ NOTES:
 * bag-of-words model
 
 ## Neural network (may 5th)
--more steps tbd
-
 
 ## testing and report (may 10th)
